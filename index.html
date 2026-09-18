@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Language Translation Tool</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f5f9;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        textarea {
+            width: 90%;
+            height: 150px;
+            padding: 15px;
+            font-size: 16px;
+        }
+
+        select {
+            padding: 10px;
+            margin: 10px;
+        }
+
+        button {
+            padding: 12px 25px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🌐 Language Translation Tool</h1>
+
+        <p>Enter text to translate</p>
+
+        <textarea id="inputText"
+            placeholder="Type your text here..."></textarea>
+
+        <br>
+
+        <select id="sourceLanguage">
+            <option value="">Auto Detect</option>
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+            <option value="te">Telugu</option>
+            <option value="ta">Tamil</option>
+            <option value="kn">Kannada</option>
+        </select>
+
+        <select id="targetLanguage">
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+            <option value="te">Telugu</option>
+            <option value="ta">Tamil</option>
+            <option value="kn">Kannada</option>
+        </select>
+
+        <br><br>
+
+        <button onclick="translateText()">
+            Translate
+        </button>
+
+        <h3>Translation:</h3>
+
+        <p id="outputText">
+            Translation will appear here
+        </p>
+
+    </div>
+
+</body>
+</html>
