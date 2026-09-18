@@ -89,6 +89,46 @@
         </p>
 
     </div>
+<script>
+async function translateText() {
+    const text = document.getElementById("inputText").value;
+    const source = document.getElementById("sourceLanguage").value;
+    const target = document.getElementById("targetLanguage").value;
+    const output = document.getElementById("outputText");
 
+    if (text.trim() === "") {
+        output.innerText = "Please enter some text.";
+        return;
+    }
+
+    if (source === target && source !== "") {
+        output.innerText = text;
+        return;
+    }
+
+    output.innerText = "Translating...";
+
+    const from = source === "" ? "auto" : source;
+
+    try {
+        const url =
+            "https://api.mymemory.translated.net/get?q=" +
+            encodeURIComponent(text) +
+            "&langpair=" +
+            encodeURIComponent(from + "|" + target);
+
+        const response = await fetch(url);
+        const data = await response.json();
+
+        if (data.responseData && data.responseData.translatedText) {
+            output.innerText = data.responseData.translatedText;
+        } else {
+            output.innerText = "Translation failed.";
+        }
+    } catch (error) {
+        output.innerText = "Error connecting to translation service.";
+    }
+}
+</script>
 </body>
 </html>
